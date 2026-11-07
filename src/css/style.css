@@ -257,6 +257,13 @@ button {
   }
 }
 
+/* Announcements loaded from json/alerts.json */
+.alert-list p {
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+  text-align: center;
+}
+
 footer {
   font-size: var(--small-font);
   padding: 1em;

@@ -7,6 +7,7 @@
   --tertiary-color: #8a470c;
   --light-grey: #d0d0d0;
   --dark-grey: #303030;
+  --discount-color: #b3261e;
 
   /* sizes */
   --font-base: 18px;
@@ -201,6 +202,47 @@ button {
 
 .product-detail img {
   width: 100%;
+}
+
+/* Discount indicator on the product detail page */
+.product-discount {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5em;
+  margin: 0.25em 0 1em;
+  font-size: var(--small-font);
+}
+
+.discount-badge {
+  background-color: var(--discount-color);
+  color: #fff;
+  font-weight: bold;
+  padding: 0.25em 0.6em;
+  border-radius: 4px;
+  animation: discount-pop 0.4s ease-out;
+}
+
+.product-discount__savings {
+  color: var(--discount-color);
+  font-weight: bold;
+}
+
+@keyframes discount-pop {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .discount-badge {
+    animation: none;
+  }
 }
 
 /* Start cart list card styles */

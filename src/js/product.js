@@ -7,10 +7,27 @@ const dataSource = new ProductData('tents');
 function addProductToCart(product) {
   setLocalStorage('so-cart', product);
 }
+
+// play a short animation on the backpack icon so the user sees the cart changed
+function animateCartIcon() {
+  const cart = document.querySelector('.cart');
+  if (!cart) {
+    return;
+  }
+  // remove the class first so the animation can play again on every click
+  cart.classList.remove('cart--animate');
+  void cart.offsetWidth;
+  cart.classList.add('cart--animate');
+}
+
 // add to cart button event handler
 async function addToCartHandler(e) {
   const product = await dataSource.findProductById(e.target.dataset.id);
+  if (!product) {
+    return;
+  }
   addProductToCart(product);
+  animateCartIcon();
 }
 
 // add listener to Add to Cart button
